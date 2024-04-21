@@ -19,7 +19,7 @@ if (isset($_POST['submit_btn'])) {
         if ($fileError === 0) {
             if ($fileSize < 5000000) { //5mb size 5000kb 5000000bytes
                 $fileNameNew = uniqid('', true) . '.' . $fileActualExt;
-                $fileDestination = 'files/' . $fileNameNew;
+                $fileDestination = '/files/' . $fileNameNew;
                 move_uploaded_file($fileTmpName, $fileDestination);
                 $sql = "INSERT INTO img (img_url) VALUES ('$fileDestination')";
                 $result = mysqli_query($con, $sql);
